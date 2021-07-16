@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="KO">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./login_index.css?v=<?=$v?>">
+
+
+<script src="../jquery.js"></script>
+<script src="../jq/jquery-ui.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/vue"></script>
+
+<title>로그인 폼</title>
+
+</head>
+<body>
+    <section> 
+        <div class="login_buisness" id="login_buisness_vue">
+            <div>
+            <label><input type="radio" name="login_b" checked @click="click_lo(0)">개인사용자</label>
+            <label><input type="radio" name="login_b" @click="click_lo(1)">법인,사용자</label>
+            </div>
+            <ul v-if="on==0">
+                <li><input type="text" v-model="lo_name" placeholder="로그인 이메일을 입력해주세요"></li>
+                <li><input type="password" v-model="lo_pass" placeholder=" 패스워드를 입력해주세요"></li>
+                <li><input type="button" value="로그인" @click=login();></li>
+            </ul>
+            <ul v-if="on==1">
+                <li><input type="text" v-model="bu_name" placeholder="대표 회사 메일 주소"></li>
+                <li><input type="text" v-model="bu_num"  placeholder="사업자번호를 입력하세요"></li>
+                <li><input type="password" v-model="bu_pass"  placeholder="패스워드를 입력하세요"></li>
+                <li><input type="button" value="로그인" @click=login_buisness();></li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
